@@ -156,12 +156,12 @@ local example = library:CreateWindow({
 end)
 example:AddLabel("選擇送貨方式", function(object, focus)
 end)
-example:AddDropdown({"移動","傳送(也許有錯誤)"},function(state)
+example:AddDropdown({"Tweening","Teleport"},function(state)
    print(state)
 getfenv().methodt = state
  end)
 example:AddToggle("自動送貨[Trailer]", function(state)
-   getfenv().test = (state and true or false)
+    getfenv().test = (state and true or false)
 while getfenv().test do
    wait()
 if game:GetService("Players").LocalPlayer.PlayerGui.Score.Frame.Jobs.Visible == false then
@@ -226,9 +226,9 @@ local dist = (game.Players.LocalPlayer.Character.HumanoidRootPart.Position-game:
 if tonumber(dist/400) > 7 then
    print("Delivery Distance:"..tonumber(dist/3.571).." meters away")
 print("Delivery ETA:"..tonumber(dist/400).." seconds")
-if getfenv().methodt == "傳送(也許有錯誤)" then
+if getfenv().methodt == "Teleport" then
 task.wait(dist/400)
-elseif getfenv().methodt == "傳送(也許有錯誤)" then
+elseif getfenv().methodt == "Tweening" then
    for i,v in pairs(game:GetService("Workspace").Cars:GetDescendants()) do
       if v.Name == "Owner" and v.Value == game.Players.LocalPlayer then
    local TweenService = game:GetService("TweenService")
@@ -250,9 +250,9 @@ end
 else
    print("Delivery Distance:"..tonumber(dist/3.571).." meters away")
 print("Delivery ETA set to:"..tonumber(7).." seconds due to it being too low")
-if getfenv().methodt == "傳送(也許有錯誤)" then
+if getfenv().methodt == "Teleport" then
    task.wait(7)
-   elseif getfenv().methodt == "傳送(也許有錯誤)" then
+   elseif getfenv().methodt == "Tweening" then
       for i,v in pairs(game:GetService("Workspace").Cars:GetDescendants()) do
          if v.Name == "Owner" and v.Value == game.Players.LocalPlayer then
       local TweenService = game:GetService("TweenService")
@@ -362,9 +362,9 @@ pcall(function()
       if tonumber(dist/400) > 7 then
          print("Delivery Distance:"..tonumber(dist/3.571).." meters away")
       print("Delivery ETA:"..tonumber(dist/400).." seconds")
-      if getfenv().methodt == "傳送(也許有錯誤)" then
+      if getfenv().methodt == "Teleport" then
       task.wait(dist/400)
-      elseif getfenv().methodt == "傳送(也許有錯誤)" then
+      elseif getfenv().methodt == "Tweening" then
          for i,v in pairs(game:GetService("Workspace").Cars:GetDescendants()) do
             if v.Name == "Owner" and v.Value == game.Players.LocalPlayer then
                v.Parent:PivotTo(v.Parent.PrimaryPart.CFrame+Vector3.new(0,1000,0))
@@ -388,9 +388,9 @@ pcall(function()
       else
          print("Delivery Distance:"..tonumber(dist/3.571).." meters away")
       print("Delivery ETA set to:"..tonumber(7).." seconds due to it being too low")
-      if getfenv().methodt == "傳送(也許有錯誤)" then
+      if getfenv().methodt == "Teleport" then
          task.wait(7)
-         elseif getfenv().methodt == "傳送(也許有錯誤)" then
+         elseif getfenv().methodt == "Tweening" then
             for i,v in pairs(game:GetService("Workspace").Cars:GetDescendants()) do
                if v.Name == "Owner" and v.Value == game.Players.LocalPlayer then
                   v.Parent:PivotTo(v.Parent.PrimaryPart.CFrame+Vector3.new(0,1000,0))
