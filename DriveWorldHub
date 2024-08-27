@@ -3,13 +3,14 @@ local Window = Library.CreateLib("DriveWorldHub", "DarkTheme")
 
 
 local Tab = Window:NewTab("Main")
+local Section = Tab:NewSection("Key System")
 
-local Button = Section:NewButton("Speed Hack", "ButtonInfo", function()
-    print("Clicked")
+local Button = Section:NewButton("Speed Hack", "ButtonInfo",
+function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/HennessyQuQ/DriveWorld/main/DriveWorldSpeed"))()
 end)
 
-local Button = Section:NewButton("Speed Hack Pc", "ButtonInfo", function()
-    print("Clicked")
+local Button = Section:NewButton("Speed Hack Pc", "ButtonInfo",
+function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/HennessyQuQ/DriveWorld/main/DriveWorldSpeedPC"))()
 end)
