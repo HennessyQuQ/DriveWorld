@@ -1,23 +1,40 @@
-local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
-local Window = Library.CreateLib("DriveWorldHub", "DarkTheme")
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+local Window = OrionLib:MakeWindow({Name = "Title of the library", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
+local uis = game:GetService("UserInputService")
+
+local SpeedTab = Window:MakeTab({
+	Name = "Speed",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
 
 
-local Tab = Window:NewTab("Main")
-local Section = Tab:NewSection("Key System")
+SpeedTab:AddButton({
+	Name = "Speed",
+	Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/HennessyQuQ/DriveWorld/main/DriveWorldSpeed"))()
+  	end    
+})
 
-local Button = Section:NewButton("Speed Hack", "ButtonInfo",
-function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/HennessyQuQ/DriveWorld/main/DriveWorldSpeed"))()
-end)
+SpeedTab:AddButton({
+	Name = "SpeedPc",
+	Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/HennessyQuQ/DriveWorld/main/DriveWorldSpeedPC"))()
+  	end    
+})
 
-local Button = Section:NewButton("Speed Hack Pc", "ButtonInfo",
-function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/HennessyQuQ/DriveWorld/main/DriveWorldSpeedPC"))()
-end)
+    local FarmTab = Window:MakeTab({
+	    Name = "Farm",
+	    Icon = "rbxassetid://4483345998",
+	    PremiumOnly = false
+    })
 
 
-local Button = Section:NewButton("AutoFarm", "ButtonInfo",
-function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/HennessyQuQ/DriveWorld/main/DriveWorld"))()
-end)
-
+    FarmTab:AddButton({
+	    Name = "afk",
+	    Callback = function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/HennessyQuQ/DriveWorld/main/DriveWorld%20White%20List"))()
+  	    end    
+    })
+end
+OrionLib:Init()
