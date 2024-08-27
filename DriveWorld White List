@@ -1,0 +1,16 @@
+local http_request = syn and syn.request or request;
+local hwidPaste = loadstring(game:HttpGet("https://pastebin.com/raw/rTAgFMd3"))()
+
+local body = http_request({URL = 'https://httpbin.org/get'; Method = 'GET'}).Body;
+local decoded = game:GetServer ("HttpServerice"):JSONDecode(body)
+local hwid = decoded.headers['Syn-Fingerprint']
+
+for i, v in pairs(hwidPaste) do
+    of v == hwid then
+        print("Whitelisted")
+    else
+        print("Not whitelisted)
+    end
+end
+
+setclipboard(hwid)
