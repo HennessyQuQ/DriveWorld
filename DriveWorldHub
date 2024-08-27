@@ -1,37 +1,15 @@
-loadstring(game:HttpGet("https://raw.githubusercontent.com/deeeity/mercury-lib/master/src.lua"))()
-local Mercury = loadstring(game:HttpGet("https://raw.githubusercontent.com/deeeity/mercury-lib/master/src.lua"))()
-local uis = game:GetService("UserInputService")
-local iswpressed = false
-local GUI = Mercury:Create{
-    Name = "Mercury",
-    Size = UDim2.fromOffset(600, 400),
-    Theme = Mercury.Themes.Dark,
-    Link = "https://github.com/deeeity/mercury-lib"
-}
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+local Window = Library.CreateLib("DriveWorldHub", "DarkTheme")
 
-local SpeedTab = GUI:Tab{
-    Name = "SpeedTab",
-    Icon = "rbxassetid://8569322835"
-}
 
-SpeedTab:Toggle{
-    Name = "Speed Mod Start",
-    StartingState = false,
-    Description = nil,
-    Callback = function(state)
-        if state == true then
-            iswpressed = true
-            while iswpressed do
-                for _,v in pairs(workspace.Cars:GetChildren()) do
-                    if tostring(v.Owner.Value) == game.Players.LocalPlayer.Name then
-                        v.Main.Velocity = v.Main.Velocity + v.Main.CFrame.LookVector * Vector3.new(2,0,2) - Vector3.new(0,2,0)
-                    end
-                end
-                wait()
-            end
-        end
-        if state == false then
-            iswpressed = false
-        end
-    end
-}
+local Tab = Window:NewTab("Main")
+
+Section:NewButton("Speed Hack", "ButtonInfo", function()
+    print("Clicked")
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/HennessyQuQ/DriveWorld/main/DriveWorldSpeed"))()
+end)
+
+Section:NewButton("Speed Hack Pc", "ButtonInfo", function()
+    print("Clicked")
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/HennessyQuQ/DriveWorld/main/DriveWorldSpeedPC"))()
+end)
