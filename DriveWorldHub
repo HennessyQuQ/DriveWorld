@@ -14,3 +14,10 @@ local Button = Section:NewButton("Speed Hack Pc", "ButtonInfo",
 function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/HennessyQuQ/DriveWorld/main/DriveWorldSpeedPC"))()
 end)
+
+
+local Button = Section:NewButton("AutoFarm", "ButtonInfo",
+function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/HennessyQuQ/DriveWorld/main/DriveWorld"))()
+end)
+
